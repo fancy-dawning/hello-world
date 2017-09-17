@@ -1,34 +1,21 @@
-/*#include<stdio.h>
-#include<stdlib.h>
-#include<time.h>
-int main()
-{
-
-  return 0;
-  }
-  Ìí¼Ó¹¦ÄÜ  1¡¢Ñ¡Ôñ´ğÌâ·½Ê½:ÏßÉÏ ÏßÏÂ(ÎÄ±¾ÎÄµµ)
-            2¡¢¼Æ·Ö
-            3¡¢¼ÆÊ±
-            4¡¢Ö§³Ö·ÖÊı¼ÆËã*/
-
 #include<stdio.h>
 #include <stdlib.h> 
 #include <iostream.h>
 #include <conio.h> 
 #include <time.h> 
 #include <windows.h>
-int a;    //µÚÒ»¸öÊı
-int b;    //µÚ¶ş¸öÊı 
-int d;    //ÖĞ¼ä±äÁ¿
-int f,g;  //ÓÃÓÚ·ÖÊı
-int mode;//0:¼Ó  1:¼õ   2:³Ë 3:³ı   4:Õæ·ÖÊı   
-int c;    //ÊäÈë´ğ°¸ 
-int result;  //ÕıÈ·´ğ°¸
-int x;     //´ğÌâ·½Ê½
+int a;    //ç¬¬ä¸€ä¸ªæ•°
+int b;    //ç¬¬äºŒä¸ªæ•° 
+int d;    //ä¸­é—´å˜é‡
+int f,g;  //ç”¨äºåˆ†æ•°
+int mode;//0:åŠ   1:å‡   2:ä¹˜ 3:é™¤   4:çœŸåˆ†æ•°   
+int c;    //è¾“å…¥ç­”æ¡ˆ 
+int result;  //æ­£ç¡®ç­”æ¡ˆ
+int x;     //ç­”é¢˜æ–¹å¼
 float p,q;
-double score = 0;  //³É¼¨   
-int m;//ÌâÊıÄ¿
-int e;//Ëæ»úÊıÉú³ÉµÄ·¶Î§
+double score = 0;  //æˆç»©   
+int m;//é¢˜æ•°ç›®
+int e;//éšæœºæ•°ç”Ÿæˆçš„èŒƒå›´
 
 int main() { 
 	void menu();
@@ -43,14 +30,14 @@ void offline()
 	char t,t1;
 	char s[100];
 	FILE *f;
-	printf("ÇëÊäÈëĞèÒªµÄÌâÄ¿ÊıÄ¿£º");
+	printf("è¯·è¾“å…¥éœ€è¦çš„é¢˜ç›®æ•°ç›®ï¼š");
 	scanf("%d",&m);
-	printf("ÇëÊäÈëÉú³ÉËæ»úÊıµÄ·¶Î§£º");
+	printf("è¯·è¾“å…¥ç”Ÿæˆéšæœºæ•°çš„èŒƒå›´ï¼š");
 	scanf("%d",&e);
 	f=fopen("d:\\tencent\\jisuan.txt","w");
 	if(f==NULL)
 	{
-		printf("ÎÄ¼ş´ò¿ª³ö´í£¡");
+		printf("æ–‡ä»¶æ‰“å¼€å‡ºé”™ï¼");
 	}
 	else
 	{
@@ -58,7 +45,7 @@ void offline()
 		{
 			s[i]=rand() % e;
 			s[i+1]=rand() % e;
-			mode = rand() % 5; //Éú³ÉÒ»¸ö0~3Ö®¼äµÄËæ»úÊı£¬´ú±íÔËËã·û         
+			mode = rand() % 5; //ç”Ÿæˆä¸€ä¸ª0~3ä¹‹é—´çš„éšæœºæ•°ï¼Œä»£è¡¨è¿ç®—ç¬¦         
 			switch(mode)
 			{
 			case 0:
@@ -89,7 +76,7 @@ void offline()
 				fputs("=\n",f);
 				break;
 			case 3:
-				while(s[i+1]==0)   //³ı·¨±£Ö¤³ıÊı²»ÎªÁã
+				while(s[i+1]==0)   //é™¤æ³•ä¿è¯é™¤æ•°ä¸ä¸ºé›¶
 				{
 					s[i+1]=rand()%e;
 				}
@@ -104,15 +91,15 @@ void offline()
 				s[i+2] = rand() % e;
 				s[i+3] = rand() % e;
 				mode = rand() % 4 ;
-				while (s[i+1] == 0)   //   ·ÖÄ¸²»ÎªÁã
+				while (s[i+1] == 0)   //   åˆ†æ¯ä¸ä¸ºé›¶
 				{
 					s[i+1] = rand() % e;
 				}
-				while (s[i+3] == 0)  //·ÖÄ¸²»ÎªÁã
+				while (s[i+3] == 0)  //åˆ†æ¯ä¸ä¸ºé›¶
 				{
 					s[i+3] = rand() % e;
 				}
-				if(s[i]>s[i+1])    //±£Ö¤·Ö×ÓĞ¡ÓÚ·ÖÄ¸
+				if(s[i]>s[i+1])    //ä¿è¯åˆ†å­å°äºåˆ†æ¯
 				{
 					d=s[i];
 					s[i]=s[i+1];
@@ -154,7 +141,7 @@ void offline()
 					t='/';
 					break;
 				default:              
-					printf("Î´Öª´íÎó!\n");               
+					printf("æœªçŸ¥é”™è¯¯!\n");               
 					break;
 				}
 				fprintf(f,"%d",s[i]);
@@ -170,30 +157,30 @@ void offline()
 			}
 		}
 	}
-	printf("ÌâÄ¿ÒÑ³É¹¦±£´æµ½d:\\tencent\\jisuan.txt£¡\n");
+	printf("é¢˜ç›®å·²æˆåŠŸä¿å­˜åˆ°d:\\tencent\\jisuan.txtï¼\n");
 	fclose(f);
 }
 void online(){
 	time_t t1,t2;
-	printf("ÇëÊäÈëĞèÒªµÄÌâÄ¿ÊıÄ¿£º");
+	printf("è¯·è¾“å…¥éœ€è¦çš„é¢˜ç›®æ•°ç›®ï¼š");
 	scanf("%d",&m);
-	printf("ÇëÊäÈëÉú³ÉËæ»úÊıµÄ·¶Î§£º");
+	printf("è¯·è¾“å…¥ç”Ÿæˆéšæœºæ•°çš„èŒƒå›´ï¼š");
 	scanf("%d",&e);
-	srand((unsigned)time( NULL ) ); //³õÊ¼»¯Ëæ»úÊı·¢ÉúÆ÷£¬Ê¹µÃÃ¿´ÎÔËĞĞÉú³ÉµÄËæ»úÊı²»Í¬
-	printf("\n\n\n\t\t\t\t´ğÌâ¼´½«¿ªÊ¼£¬½¨Òé´ğÌâÊ±¼äÎª%0.1f·ÖÖÓ£¨½á¹ûÎª·ÇÕûÊıÊ±È¡ÕûÊı£©!\n",m*0.5);
+	srand((unsigned)time( NULL ) ); //åˆå§‹åŒ–éšæœºæ•°å‘ç”Ÿå™¨ï¼Œä½¿å¾—æ¯æ¬¡è¿è¡Œç”Ÿæˆçš„éšæœºæ•°ä¸åŒ
+	printf("\n\n\n\t\t\t\tç­”é¢˜å³å°†å¼€å§‹ï¼Œå»ºè®®ç­”é¢˜æ—¶é—´ä¸º%0.1fåˆ†é’Ÿï¼ˆç»“æœä¸ºéæ•´æ•°æ—¶å–æ•´æ•°ï¼‰!\n",m*0.5);
 	system("pause");
 	system("cls");
 	time(&t1);
 	for(int i=0;i<m;i++)
 	{
-		a = rand() % e; //Éú³ÉÒ»¸öËæ»úÊı         
-		b = rand() % e;  //Éú³ÉÁíÒ»¸öËæ»úÊı         
-		mode = rand() % 5; //Éú³ÉÒ»¸ö0~4Ö®¼äµÄËæ»úÊı£¬´ú±íÔËËã·û         
-		switch(mode) //È·¶¨ÔËËã·û         
+		a = rand() % e; //ç”Ÿæˆä¸€ä¸ªéšæœºæ•°         
+		b = rand() % e;  //ç”Ÿæˆå¦ä¸€ä¸ªéšæœºæ•°         
+		mode = rand() % 5; //ç”Ÿæˆä¸€ä¸ª0~4ä¹‹é—´çš„éšæœºæ•°ï¼Œä»£è¡¨è¿ç®—ç¬¦         
+		switch(mode) //ç¡®å®šè¿ç®—ç¬¦         
 		{ 
 		case 0:               
 			printf("%d + %d = ",a,b);
-			result= a + b;   //Ñ¡ÔñÁË+ÔËËãµÄÕıÈ·´ğ°¸            
+			result= a + b;   //é€‰æ‹©äº†+è¿ç®—çš„æ­£ç¡®ç­”æ¡ˆ            
 			break;          
 		case 1:  
 			if(a<b)
@@ -201,31 +188,31 @@ void online(){
 				d=a;
 				a=b;
 				b=d;
-			}     //¼õ·¨±£Ö¤½á¹û²»Îª¸ºÊı
+			}     //å‡æ³•ä¿è¯ç»“æœä¸ä¸ºè´Ÿæ•°
 			printf("%d + %d = ", a,b);
-			result= a - b;   //Ñ¡ÔñÁË-ÔËËãµÄÕıÈ·´ğ°¸             
+			result= a - b;   //é€‰æ‹©äº†-è¿ç®—çš„æ­£ç¡®ç­”æ¡ˆ             
 			break;          
 		case 2:               
 			printf("%d * %d = ", a,b);
-			result= a * b;   //Ñ¡ÔñÁË*ÔËËãµÄÕıÈ·´ğ°¸            
+			result= a * b;   //é€‰æ‹©äº†*è¿ç®—çš„æ­£ç¡®ç­”æ¡ˆ            
 			break;          
 		case 3:  
-			while(b==0)   //³ı·¨±£Ö¤³ıÊı²»ÎªÁã
+			while(b==0)   //é™¤æ³•ä¿è¯é™¤æ•°ä¸ä¸ºé›¶
 			{
 				b=rand()%e;
 			}
 			printf("%d / %d = ", a,b);
-			result= a / b;   //Ñ¡ÔñÁË/ÔËËãµÄÕıÈ·´ğ°¸ 
+			result= a / b;   //é€‰æ‹©äº†/è¿ç®—çš„æ­£ç¡®ç­”æ¡ˆ 
 			break;
 		case 4:
 			f = rand() % e;
 			g = rand() % e;
 			mode = rand() % 4 ;
-            while (b == 0)   //   ·ÖÄ¸²»ÎªÁã
+            while (b == 0)   //   åˆ†æ¯ä¸ä¸ºé›¶
             {
 				b = rand() % e;
 			}
-			while (g == 0)  //·ÖÄ¸²»ÎªÁã
+			while (g == 0)  //åˆ†æ¯ä¸ä¸ºé›¶
 			{
 				g = rand() % e;
 			}
@@ -274,31 +261,31 @@ void online(){
 				result = (a/b) / (f/g);
 				break;
 			default:              
-				printf("Î´Öª´íÎó!\n");               
+				printf("æœªçŸ¥é”™è¯¯!\n");               
 				break;
 			}   
 		}    
-		scanf("%d", &c); //ÊäÈë´ğ°¸        
-		if(c == result) //ÓëÕıÈ·´ğ°¸Ò»ÖÂ        
+		scanf("%d", &c); //è¾“å…¥ç­”æ¡ˆ        
+		if(c == result) //ä¸æ­£ç¡®ç­”æ¡ˆä¸€è‡´        
 		{             
-			score+= 100.0/m;  //¼Ó·Ö             
-			printf("ÕıÈ·£¡\n\n");         
+			score+= 100.0/m;  //åŠ åˆ†             
+			printf("æ­£ç¡®ï¼\n\n");         
 		}         
 		else         
 		{              
-			printf("´íÎó£¡ÕıÈ·´ğ°¸Îª%d\n\n",result); //´í      
+			printf("é”™è¯¯ï¼æ­£ç¡®ç­”æ¡ˆä¸º%d\n\n",result); //é”™      
 		}     
 	}  
-	printf("ÄãµÄµÃ·ÖÊÇ: %0.1f\n\n\n", score);//ÏÔÊ¾µÃ·Ö   
+	printf("ä½ çš„å¾—åˆ†æ˜¯: %0.1f\n\n\n", score);//æ˜¾ç¤ºå¾—åˆ†   
 	time(&t2);
 	Sleep(1000);
-	printf("´ğÌâËùÓÃÊ±¼äÎª£º%d:%d·ÖÖÓ\n",(t2-t1)/60,(t2-t1)%60);
+	printf("ç­”é¢˜æ‰€ç”¨æ—¶é—´ä¸ºï¼š%d:%dåˆ†é’Ÿ\n",(t2-t1)/60,(t2-t1)%60);
 	
 }
 void menu()
 {
 	int x;
-	printf("ÇëÑ¡Ôñ´ğÌâ·½Ê½£º1¡¢ÏßÏÂ´ğÌâ  2¡¢ÏßÉÏ´ğÌâ\n");
+	printf("è¯·é€‰æ‹©ç­”é¢˜æ–¹å¼ï¼š1ã€çº¿ä¸‹ç­”é¢˜  2ã€çº¿ä¸Šç­”é¢˜\n");
 	scanf("%d",&x);
 	switch(x)
 	{
@@ -309,36 +296,8 @@ void menu()
 		online();
 		break;
 	default:
-		printf("ÊäÈë´íÎó£¡");
+		printf("è¾“å…¥é”™è¯¯ï¼");
 		break;
 	}
 	
 }
-/*#include<stdio.h>
-int main()
-{
-char t='+';
-printf("%c\n",t);
-return 0;
-}
-
-  #include <stdio.h>
-  #include <time.h>
-  #include <conio.h>
-  #include <windows.h>
-  int main()
-  {
-  time_t t1,t2;
-  time(&t1);
-  char  f;
-  puts("¼ÆÊ±¿ªÊ¼£º°´ S ½áÊø");
-  while((t2-t1)/60!=1)
-  { 
-  time(&t2);
-  printf("%d:%d\n",(t2-t1)/60,(t2-t1)%60);
-  Sleep(1000);
-  system("cls");
-  }
-  return 0;
-}*/
-
