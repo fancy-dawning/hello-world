@@ -8,7 +8,7 @@ int a;    //第一个数
 int b;    //第二个数 
 int d;    //中间变量
 int f,g;  //用于分数
-int mode;//0:加  1:减   2:乘 3:除   4:真分数   
+int mode;//0:加  1:减   2:乘 3:除   4:真分数运算
 int c;    //输入答案 
 int result;  //正确答案
 int x;     //答题方式
@@ -24,7 +24,7 @@ int main() {
 	menu();
 	return 0;
 }
-void offline()
+void offline()   //增加线下答题方式
 {
 	int i=0;
 	char t,t1;
@@ -188,7 +188,7 @@ void online(){
 				d=a;
 				a=b;
 				b=d;
-			}     //减法保证结果不为负数
+			}     //减法保证结果不为负数（修改功能）
 			printf("%d + %d = ", a,b);
 			result= a - b;   //选择了-运算的正确答案             
 			break;          
@@ -197,14 +197,14 @@ void online(){
 			result= a * b;   //选择了*运算的正确答案            
 			break;          
 		case 3:  
-			while(b==0)   //除法保证除数不为零
+			while(b==0)   //除法保证除数不为零（修改功能）
 			{
 				b=rand()%e;
 			}
 			printf("%d / %d = ", a,b);
 			result= a / b;   //选择了/运算的正确答案 
 			break;
-		case 4:
+		case 4:                   //增加真分数的运算
 			f = rand() % e;
 			g = rand() % e;
 			mode = rand() % 4 ;
@@ -268,22 +268,22 @@ void online(){
 		scanf("%d", &c); //输入答案        
 		if(c == result) //与正确答案一致        
 		{             
-			score+= 100.0/m;  //加分             
+			score+= 100.0/m;  //加分（修改计分方式）           
 			printf("正确！\n\n");         
 		}         
 		else         
 		{              
-			printf("错误！正确答案为%d\n\n",result); //错      
+			printf("错误！正确答案为%d\n\n",result); //错（增加：显示正确答案） 
 		}     
 	}  
 	printf("你的得分是: %0.1f\n\n\n", score);//显示得分   
 	time(&t2);
 	Sleep(1000);
-	printf("答题所用时间为：%d:%d分钟\n",(t2-t1)/60,(t2-t1)%60);
+	printf("答题所用时间为：%d:%d分钟\n",(t2-t1)/60,(t2-t1)%60);   //增加计时功能
 	
 }
-void menu()
-{
+void menu()    //增加选择菜单
+{ 
 	int x;
 	printf("请选择答题方式：1、线下答题  2、线上答题\n");
 	scanf("%d",&x);
