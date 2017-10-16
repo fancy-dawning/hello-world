@@ -144,7 +144,7 @@ void suan_score(PLAYER *p,float ave,int num)
 {
 	int i;
 	char ch;
-	float max=(float)fabs(p[0].number-ave);
+	float max=(float)fabs(p[0].number-ave);  //求输入的数和平均值之差的绝对值
 	float min=(float)fabs(p[0].number-ave);
 	
 	for(i=0;i<num;i++) //统计出本轮最大值，最小值
